@@ -1,0 +1,33 @@
+##
+Create a function to check if a candidate is qualified in an imaginary coding interview of an imaginary tech startup.
+
+The criteria for a candidate to be qualified in the coding interview is:
+
+The candidate should have complete all the questions.
+The maximum time given to complete the interview is 120 minutes.
+The maximum time given for very easy questions is 5 minutes each.
+The maximum time given for easy questions is 10 minutes each.
+The maximum time given for medium questions is 15 minutes each.
+The maximum time given for hard questions is 20 minutes each.
+Question by Mubashir Hassian from edabit
+##
+def interview(lst, tot):
+    if tot > 120 or helper(lst):
+        return "disqualified"
+    else:
+        return "qualified"
+
+##determine if time on each question is within requirement, return false if yes.
+def helper(lst):
+    p = 5
+    if len(lst) != 8:
+        return True
+    else:
+        i = 0;
+        while i < 8:
+            if lst[i] > p:
+                return True
+            if i%2 != 0:
+                p += 5
+            i += 1
+        return False
